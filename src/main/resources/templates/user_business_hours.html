@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <title>test</title>
+</head>
+<body>
+<div th:replace="fragments/nav.html :: nav-main(isAdmin=${isAdmin})"></div>
+<div class="container">
+    <form action="#" th:action="@{/businessHours}" method="post" th:object="${businessHoursWrapper}">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Monday Day Off:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" th:field="*{mondayDayOff}" th:value="*{mondayDayOff}">
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Monday Start Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{mondayStartTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Monday End Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{mondayEndTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Tuesday Day Off:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" th:field="*{tuesdayDayOff}" th:value="*{tuesdayDayOff}">
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Tuesday Start Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{tuesdayStartTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Tuesday End Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{tuesdayEndTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Wednesday Day Off:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" th:field="*{wednesdayDayOff}" th:value="*{wednesdayDayOff}">
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Wednesday Start Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{wednesdayStartTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Wednesday End Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{wednesdayEndTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Thursday Day Off:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" th:field="*{thursdayDayOff}" th:value="*{thursdayDayOff}">
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Thursday Start Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{thursdayStartTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Thursday End Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{thursdayEndTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Friday Day Off:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" th:field="*{fridayDayOff}" th:value="*{fridayDayOff}">
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Friday Start Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{fridayStartTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Friday End Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{fridayEndTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Saturday Day Off:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" th:field="*{saturdayDayOff}" th:value="*{saturdayDayOff}">
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Saturday Start Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{saturdayStartTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Saturday End Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{saturdayEndTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Sunday Day Off:</label>
+            </div>
+            <div class="col-4">
+                <input class="form-check-input" type="checkbox" th:field="*{sundayDayOff}" th:value="*{sundayDayOff}">
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Sunday Start Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{sundayStartTime}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Sunday End Time:</label>
+            </div>
+            <div class="col-4">
+                <input type="time" class="form-control" th:field="*{sundayEndTime}"/><br/>
+            </div>
+        </div>
+        <div class="row p-3">
+            <button type="submit" class="btn btn-primary p-2">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

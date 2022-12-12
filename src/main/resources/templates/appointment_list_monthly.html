@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1"/>
+  <link href="css/styles.css" rel="stylesheet"/>
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+  <title>Appointments</title>
+</head>
+<body>
+<div th:replace="fragments/nav.html :: nav-main(isAdmin=${isAdmin})"></div>
+<div class="container">
+  <a class="nav-link" href="/appointment/create">Create Appointment</a>
+  <a class="nav-link" href="/appointment/weekly">Weekly Appointments</a>
+  <div th:replace="fragments/appointments.html :: appointments-fragment(appointments=${monthly})"></div>
+
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+    <title>Mega-Corp Scheduler Application</title>
+</head>
+<body>
+<div th:replace="fragments/nav.html :: nav-main(isAdmin=${isAdmin})"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 border">
+            <h5>Quick Links</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/customer/create">Create Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/appointment/create">Create Appointment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reports">Reports</a>
+                </li>
+            </ul>
+            <div class="p-2">
+                <h5><span th:text="${full_name}"></span></h5>
+                <div th:if="${mondayIsDayOff}">
+                    <strong>Monday</strong>: Day Off
+                </div>
+                <div th:unless="${mondayIsDayOff}">
+                    <strong>Monday</strong>:
+                    <span th:text="${mondayStartTime}"></span> -
+                    <span th:text="${mondayEndTime}"></span>
+                </div>
+                <div th:if="${tuesdayIsDayOff}">
+                    <strong>Tuesday</strong>: Day Off
+                </div>
+                <div th:unless="${tuesdayIsDayOff}">
+                    <strong>Tuesday</strong>:
+                    <span th:text="${tuesdayStartTime}"></span> -
+                    <span th:text="${tuesdayEndTime}"></span>
+                </div>
+
+                <div th:if="${wednesdayIsDayOff}">
+                    <strong>Wednesday</strong>: Day Off
+                </div>
+                <div th:unless="${wednesdayIsDayOff}">
+                    <strong>Wednesday</strong>:
+                    <span th:text="${wednesdayStartTime}"></span> -
+                    <span th:text="${wednesdayEndTime}"></span>
+                </div>
+
+                <div th:if="${thursdayIsDayOff}">
+                    <strong>Thursday</strong>: Day Off
+                </div>
+                <div th:unless="${thursdayIsDayOff}">
+                    <strong>Thursday</strong>:
+                    <span th:text="${thursdayStartTime}"></span> -
+                    <span th:text="${thursdayEndTime}"></span>
+                </div>
+                <div th:if="${fridayIsDayOff}">
+                    <strong>Friday</strong>: Day Off
+                </div>
+                <div th:unless="${fridayIsDayOff}">
+                    <strong>Friday</strong>:
+                    <span th:text="${fridayStartTime}"></span> -
+                    <span th:text="${fridayEndTime}"></span>
+                </div>
+                <div th:if="${saturdayIsDayOff}">
+                    <strong>Saturday</strong>: Day Off
+                </div>
+                <div th:unless="${saturdayIsDayOff}">
+                    <strong>Saturday</strong>:
+                    <span th:text="${saturdayStartTime}"></span> -
+                    <span th:text="${saturdayEndTime}"></span>
+                </div>
+                <div th:if="${sundayIsDayOff}">
+                    <strong>Sunday</strong>: Day Off
+                </div>
+                <div th:unless="${sundayIsDayOff}">
+                    <strong>Sunday</strong>:
+                    <span th:text="${sundayStartTime}"></span> -
+                    <span th:text="${sundayEndTime}"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col border">
+            <h5>Upcoming Appointments</h5>
+            <div th:if="${hasAppointments}">
+                <div th:replace="fragments/appointments.html :: appointments-fragment(appointments=${appointments})"></div>
+            </div>
+            <div th:unless="${hasAppointments}">
+                No Appointments Today
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</body>
+</html>

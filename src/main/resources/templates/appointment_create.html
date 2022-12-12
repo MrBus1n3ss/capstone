@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <title>Create Appointment</title>
+</head>
+<body>
+<div th:replace="fragments/nav.html :: nav-main(isAdmin=${isAdmin})"></div>
+<div class="container">
+    <form action="#" th:action="@{/appointment/create}" method="post" th:object="${appointment}">
+        <input type="hidden" th:field="*{appointmentId}"/>
+        <input type="hidden" th:field="*{userId}"/>
+        <div class="row py-1">
+            <select class="form-select" aria-label="Default select example" th:field="*{customerId}">
+                <option th:each="customer : ${customers}" th:text="${customer.firstName + ' ' + customer.lastName + ': email: ' + customer.email}" th:attr="data-value=${customer.id}" th:value="${customer.id}"></option>
+            </select>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Title:</label>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" th:field="*{title}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Description:</label>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" th:field="*{description}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Location:</label>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" th:field="*{location}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Preferred Contact:</label>
+            </div>
+            <select class="form-select" aria-label="Default select example" th:field="*{contact}">
+                <option th:text="Email" th:value="email"></option>
+                <option th:text="Text" th:value="text"></option>
+                <option th:text="Phone" th:value="phone"></option>
+            </select>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Type:</label>
+            </div>
+            <select class="form-select" aria-label="Default select example" th:field="*{type}">
+                <option th:text="Virtual" th:value="virtual"></option>
+                <option th:text="'In Person'" th:value="inPerson"></option>
+            </select>
+
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">URL:</label>
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" th:field="*{url}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">Start Date:</label>
+            </div>
+            <div class="col-4">
+                <input type="datetime-local" class="form-control" th:field="*{start}"/><br/>
+            </div>
+        </div>
+        <div class="row py-1">
+            <div class="col-2">
+                <label class="form-label">End Date:</label>
+            </div>
+            <div class="col-4">
+                <input type="datetime-local" class="form-control" th:field="*{end}"/><br/>
+            </div>
+        </div>
+        <div class="row p-3">
+            <button type="submit" class="btn btn-primary p-2">Submit</button>
+            <button type="reset" class="btn btn-primary p-2">Clear</button>
+        </div>
+    </form>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
