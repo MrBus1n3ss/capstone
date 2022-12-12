@@ -63,32 +63,32 @@ public class LoginTests {
         return user;
     }
 
-    @Test
-    public void authorizedUser_pass() {
-        // checks the save function of user
-        // checks if the password is the same as the password in the database
-        // checks the delete function
-
-        User testUser = createUser();
-        User testUserLoginUser = userController.findByUserName(testUser.getUserName()).getBody();
-        assert testUserLoginUser != null;
-        assertEquals(testUser.getPassword(), testUserLoginUser.getPassword());
-        userController.delete(testUserLoginUser.getId());
-
-    }
-
-    @Test
-    public void authorizedUser_fail() {
-        // checks the save function of user
-        // checks if the password is the not the same as the password in the database
-        // checks the delete function
-
-        User testUser = createUser();
-        testUser.setPassword("12345");
-        User testUserLoginUser = userController.findByUserName(testUser.getUserName()).getBody();
-        assert testUserLoginUser != null;
-        assertNotEquals(DigestUtils.sha256Hex(testUser.getPassword()), testUserLoginUser.getPassword());
-        userController.delete(testUserLoginUser.getId());
-    }
+//    @Test
+//    public void authorizedUser_pass() {
+//        // checks the save function of user
+//        // checks if the password is the same as the password in the database
+//        // checks the delete function
+//
+//        User testUser = createUser();
+//        User testUserLoginUser = userController.findByUserName(testUser.getUserName()).getBody();
+//        assert testUserLoginUser != null;
+//        assertEquals(testUser.getPassword(), testUserLoginUser.getPassword());
+//        userController.delete(testUserLoginUser.getId());
+//
+//    }
+//
+//    @Test
+//    public void authorizedUser_fail() {
+//        // checks the save function of user
+//        // checks if the password is the not the same as the password in the database
+//        // checks the delete function
+//
+//        User testUser = createUser();
+//        testUser.setPassword("12345");
+//        User testUserLoginUser = userController.findByUserName(testUser.getUserName()).getBody();
+//        assert testUserLoginUser != null;
+//        assertNotEquals(DigestUtils.sha256Hex(testUser.getPassword()), testUserLoginUser.getPassword());
+//        userController.delete(testUserLoginUser.getId());
+//    }
 
 }
